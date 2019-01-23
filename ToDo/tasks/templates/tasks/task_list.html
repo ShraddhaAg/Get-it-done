@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if task_list %}
+  {% for task in task_list %}
+  <div class="container">
+  <article class="message is-success">
+    <div class="message-body">
+      <strong>{{task.title}}</strong>
+    </div>
+  </article>
+  </div>
+  {% endfor %}
+{% else%}
+  <p>Lets add a task</p>
+{% endif %}
+{% endblock %}
