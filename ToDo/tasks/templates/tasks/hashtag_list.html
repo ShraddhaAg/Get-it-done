@@ -2,18 +2,17 @@
 
 {% block content %}
 
-{% if task_list %}
-  <p class="subtitle is-3">Uhu! Seems like there's no time to daudle, get on it NOW!</p>
-  {% for task in task_list %}
+{% if hashtag_list %}
+  {% for hashtag in hashtag_list %}
   <div class="container">
   <article class="message is-success">
     <div class="message-body">
-      <strong>{{task.title}}</strong>
+      <strong class="is-capitalized">#{{hashtag.category}}</strong>
     </div>
   </article>
   </div>
   {% endfor %}
 {% else%}
-  <p>Amazing! All up to date. Lets add a task!</p>
+  <p>Lets add a category!</p>
 {% endif %}
 {% endblock %}

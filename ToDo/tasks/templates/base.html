@@ -7,51 +7,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
+
 <body>
-  {% block sidebar %}
-    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-    </a>
-
-    <div class="navbar-menu" id="navMenu">
-      <a class="navbar-item" href="{% url 'index' %}">Tasks</a>
-      <a class="navbar-item">Categories</a>
+  <section class="hero is-medium is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1 is-success">
+        Get It Done!
+      </h1>
+      <!-- <h2 class="subtitle">
+        Primary bold subtitle
+      </h2> -->
     </div>
-
-  <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', () => {
-
-// Get all "navbar-burger" elements
-const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-// Check if there are any navbar burgers
-if ($navbarBurgers.length > 0) {
-
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
-
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('is-active');
-      $target.classList.toggle('is-active');
-
-    });
-  });
-}
-
-});
-  </script>
-  {% endblock %}
-  {% block content %}
-  <section class="section">
-
+  </div>
   </section>
+  <section class="container is-fluid main-content columns is-fullheight">
+  {% block sidebar %}
+  <aside class="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
+    <p class="menu-label is-hidden-touch">Navigation</p>
+    <ul class="menu-list">
+      <li>
+        <a href="{% url 'index' %}" class="">
+          <span class="icon"><i class="fas fa-tasks"></i></span> Tasks
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'category' %}">
+          <span class="icon"><i class="fas fa-hashtag"></i></span> Category
+        </a>
+
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon is-small"><i class="fa fa-link"></i></span> Link1
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon is-small"><i class="fa fa-link"></i></span> Link2
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- <li>
+        <a href="#" class="">
+          <span class="icon"><i class="fa fa-info"></i></span> About
+        </a>
+      </li> -->
+    </ul>
+  </aside>
+
   {% endblock %}
+  <div class="container column is-10">
+    <div class="section">
+  {% block content %}{% endblock %}
+    </div>
+  </div>
+</section>
 </body>
 </html>

@@ -4,3 +4,6 @@ from django.views import generic
 
 class Task(generic.ListView):
     model = task
+
+class Category(generic.ListView):
+    model = hashtag
