@@ -6,9 +6,11 @@
   {% for hashtag in hashtag_list %}
   <div class="container">
   <article class="message is-success">
+    <a href="{{ hashtag.get_absolute_url }}">
     <div class="message-body">
       <strong class="is-capitalized">#{{hashtag.category}}</strong>
     </div>
+    </a>
   </article>
   </div>
   {% endfor %}

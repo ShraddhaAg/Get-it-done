@@ -7,3 +7,9 @@ class Task(generic.ListView):
 
 class Category(generic.ListView):
     model = hashtag
+
+class TaskDetail(generic.DetailView):
+    model = task
+
+class CategoryDetail(generic.DetailView):
+    model = hashtag

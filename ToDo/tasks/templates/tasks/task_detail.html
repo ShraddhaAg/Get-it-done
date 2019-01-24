@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<article class="message is-success">
+  <div class="message-header">
+    <p>{{task.title}}</p>
+  </div>
+  <div class="message-body">
+    {% if task.description %}<p>{{ task.description }}</p>{% endif %}
+    <a href="{% url 'category-detail' task.hashtag.pk %}"><strong>#{{ task.hashtag.category }}</strong></a><br>
+    <strong>When should you be all over it? </strong>{{task.schedule_time_to_start}}<br>
+    <strong>By when should you done at all costs? </strong>{{task.deadline}}<br>
+    <strong>How important is it? </strong>{{task.priority}}
+  </div>
+</article>
+
+{% endblock %}

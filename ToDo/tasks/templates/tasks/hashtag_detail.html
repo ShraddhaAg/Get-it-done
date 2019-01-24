@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <article class="media">
+      <div class="media-left">
+        <p><strong class="is-capitalized subtitle is-3">#{{hashtag.category}}</strong></p>
+      </div>
+      <div class="media-content">
+
+          {% if hashtag.task_set.all.count %}
+            {% for task in hashtag.task_set.all %}
+            <div class="media">
+              <div class="media-content">
+              <div class="container">
+              <article class="message is-success">
+                <a href="{% url 'task-detail' task.pk %}"><div class="message-body">
+                  <strong>{{task.title}}</strong>
+                </div></a>
+              </article>
+              </div>
+            </div>
+            </div>
+            {% endfor %}
+          {% else %}
+          <div class="media">
+            <div class="media-content">
+            <p class="is-size-4">Oops! No tasks here.</p>
+            </div>
+          </div>
+          {% endif%}
+      </div>
+    </article>
+
+  </div>
+{% endblock %}
