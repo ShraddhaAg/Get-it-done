@@ -7,6 +7,11 @@
         <p><strong class="is-capitalized subtitle is-3">#{{hashtag.category}}</strong></p>
       </div>
       <div class="media-content">
+        <div class="field is-grouped is-grouped-right">
+            <a href="{% url 'delete-category' hashtag.pk %}" class="button is-primary">
+              Delete {{ hashtag.category }}
+            </a>
+        </div>
           {% if hashtag.task_set.all.count %}
             {% for task in hashtag.task_set.all %}
             <div class="media">
@@ -25,6 +30,7 @@
           <div class="media">
             <div class="media-content">
             <p class="is-size-4">Oops! No tasks here.</p>
+            <a href="{% url 'create-task' %}" class="title  is-4">Let's add a new task!</a>
             </div>
           </div>
           {% endif%}

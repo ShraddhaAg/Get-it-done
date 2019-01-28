@@ -9,6 +9,18 @@
     <a href="{{ hashtag.get_absolute_url }}">
     <div class="message-body">
       <strong class="is-capitalized">#{{hashtag.category}}</strong>
+        <div class="field is-grouped is-grouped-right">
+          <p class="control">
+            <a href="{% url 'delete-category' hashtag.pk %}" class="button is-primary">
+              Delete {{ hashtag.category }}
+            </a>
+          </p>
+          <!-- <p class="control">
+            <a class="button is-light">
+              Cancel
+            </a>
+          </p> -->
+        </div>
     </div>
     </a>
   </article>

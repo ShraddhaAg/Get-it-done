@@ -8,9 +8,9 @@ class AddCategory(ModelForm):
         # widgets = {
         #     'category': TextInput(attrs={'class': 'input', 'placeholder': 'Enter the category name'}),
         # }
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs):
-        self.fields['category'].widget.attrs['class'] = 'input'
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['category'].widget.attrs['class'] = 'input'
 
 class AddTask(ModelForm):
     class Meta:
