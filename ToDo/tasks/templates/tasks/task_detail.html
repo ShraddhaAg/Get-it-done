@@ -7,10 +7,10 @@
   </div>
   <div class="message-body">
     {% if task.description %}<p>{{ task.description }}</p>{% endif %}
-    <a href="{% url 'category-detail' task.hashtag.pk %}"><strong>#{{ task.hashtag.category }}</strong></a><br>
-    <strong>When should you be all over it? </strong>{{task.schedule_time_to_start}}<br>
-    <strong>By when should you done at all costs? </strong>{{task.deadline}}<br>
-    <strong>How important is it? </strong>{{task.priority}}
+    {% if task.hashtag %}<a href="{% url 'category-detail' task.hashtag.pk %}"><strong>#{{ task.hashtag.category }}</strong></a><br>{% endif %}
+    {% if task.schedule_time_to_start %}<strong>When should you be all over it? </strong>{{task.schedule_time_to_start}}<br>{% endif %}
+    {% if task.deadline %}<strong>By when should you done at all costs? </strong>{{task.deadline}}<br>{% endif %}
+    <strong>How important is it? </strong>{{task.priority}}<br>
     <a href="{% url 'delete-task' task.pk %}" class="button is-primary">
       Delete {{ task.id }}
     </a>
