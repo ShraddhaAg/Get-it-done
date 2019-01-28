@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'tasks/hashtag_form.html' %}
 {% if hashtag_list %}
   {% for hashtag in hashtag_list %}
   <div class="container">
@@ -12,14 +11,14 @@
         <div class="field is-grouped is-grouped-right">
           <p class="control">
             <a href="{% url 'delete-category' hashtag.pk %}" class="button is-primary">
-              Delete {{ hashtag.category }}
+              Delete
             </a>
           </p>
-          <!-- <p class="control">
-            <a class="button is-light">
-              Cancel
+          <p class="control">
+            <a href="{% url 'update-category' hashtag.pk %}" class="button is-light">
+              Update
             </a>
-          </p> -->
+          </p>
         </div>
     </div>
     </a>

@@ -13,7 +13,12 @@
       <div class="field is-grouped is-grouped-right">
         <p class="control">
           <a href="{% url 'delete-task' task.pk %}" class="button is-primary">
-            Delete {{ task.title }}
+            Delete
+          </a>
+        </p>
+        <p class="control">
+          <a href="{% url 'update-task' task.pk %}" class="button is-primary">
+            Update
           </a>
         </p>
       </div>
@@ -23,6 +28,7 @@
   </div>
   {% endfor %}
 {% else%}
-  <p>Amazing! All up to date. Lets add a task!</p>
+  <p class="is-size-3">Amazing! All up to date. Lets add a task!</p>
+  <a href="{% url 'create-task' %}" class="title  is-3">Let's add a new task!</a>
 {% endif %}
 {% endblock %}

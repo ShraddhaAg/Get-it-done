@@ -11,8 +11,11 @@
     {% if task.schedule_time_to_start %}<strong>When should you be all over it? </strong>{{task.schedule_time_to_start}}<br>{% endif %}
     {% if task.deadline %}<strong>By when should you done at all costs? </strong>{{task.deadline}}<br>{% endif %}
     <strong>How important is it? </strong>{{task.priority}}<br>
+    <a href="{% url 'update-task' task.pk %}" class="button is-primary">
+      Update
+    </a>
     <a href="{% url 'delete-task' task.pk %}" class="button is-primary">
-      Delete {{ task.id }}
+      Delete
     </a>
   </div>
 </article>

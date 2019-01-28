@@ -21,11 +21,21 @@ class HashtagCreate(CreateView):
     fields = '__all__'
     success_url = reverse_lazy('category')
 
+class HashtagUpdate(UpdateView):
+    model = hashtag
+    fields = '__all__'
+    success_url = reverse_lazy('category')
+
 class HashtagDelete(DeleteView):
     model = hashtag
     success_url = reverse_lazy('category')
 
 class TaskCreate(CreateView):
+    model = task
+    fields = '__all__'
+    success_url = reverse_lazy('task')
+
+class TaskUpdate(UpdateView):
     model = task
     fields = '__all__'
     success_url = reverse_lazy('task')

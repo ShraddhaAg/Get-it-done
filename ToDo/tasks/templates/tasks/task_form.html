@@ -4,40 +4,8 @@
   <div class="container">
     <form class="" action="{% url 'create-task' %}" method="post">
       {% csrf_token %}
-      {{ form }}
-      <!-- <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Title</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-              <input class="input" type="text" placeholder="{{ field.help_text }}" id="id_title">
-          </div>
-        </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Category</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-              <input class="input" type="text" placeholder="{{ field.help_text }}" id="id_hashtag">
-          </div>
-        </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">From</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-              <input class="input" type="text" placeholder="Name">
-          </div>
-        </div>
-      </div>
-      <div class="control">
-        <button class="button is-primary">Submit</button>
-      </div> -->
+      {{ form.as_table }}
+      <input type="submit" value="Submit">
     </form>
   </div>
 {% endblock %}

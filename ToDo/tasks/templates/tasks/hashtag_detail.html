@@ -8,8 +8,11 @@
       </div>
       <div class="media-content">
         <div class="field is-grouped is-grouped-right">
+          <a href="{% url 'update-category' hashtag.pk %}" class="button is-primary">
+            Update
+          </a>
             <a href="{% url 'delete-category' hashtag.pk %}" class="button is-primary">
-              Delete {{ hashtag.category }}
+              Delete
             </a>
         </div>
           {% if hashtag.task_set.all.count %}
