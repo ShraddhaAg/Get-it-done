@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<p class="subtitle is-3">Oops! Seems like you're trying to delete a task!</p>
+<p class="title is-4">Are you sure you want to delete <strong># {{ task.title }}</strong>?</p>
+<form class="" action="{% url 'delete-task' task.pk %}" method="post">
+  {% csrf_token %}
+  <div class="field">
+      <div class="control">
+        <button class="button is-primary">
+          Delete {{ task.title }}
+        </button>
+      </div>
+  </div>
+</form>
+</div>
+{% endblock %}

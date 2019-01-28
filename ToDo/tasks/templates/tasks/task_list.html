@@ -7,9 +7,18 @@
   {% for task in task_list %}
   <div class="container">
   <article class="message is-success">
-  <a href="{{ task.get_absolute_url }}"><div class="message-body">
+  <a href="{{ task.get_absolute_url }}">
+    <div class="message-body">
       <strong>{{task.title}}</strong>
-    </div></a>
+      <div class="field is-grouped is-grouped-right">
+        <p class="control">
+          <a href="{% url 'delete-task' task.pk %}" class="button is-primary">
+            Delete {{ task.title }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </a>
   </article>
   </div>
   {% endfor %}

@@ -11,6 +11,9 @@
     <strong>When should you be all over it? </strong>{{task.schedule_time_to_start}}<br>
     <strong>By when should you done at all costs? </strong>{{task.deadline}}<br>
     <strong>How important is it? </strong>{{task.priority}}
+    <a href="{% url 'delete-task' task.pk %}" class="button is-primary">
+      Delete {{ task.id }}
+    </a>
   </div>
 </article>
 
