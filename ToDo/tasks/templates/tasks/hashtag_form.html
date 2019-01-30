@@ -5,9 +5,9 @@
       {% csrf_token %}
       <div class="field">
         <div class="control">
-          <input type="text" class='input' name="category" value="" id="id_category">
+          <input type="text" class='input' name="category" value="{% if form.category.value %}{{ form.category.value }}{% endif %}" id="id_category">
         </div>
-        <p class="help">{{ field.help_text }}</p>
+        <p class="help">{{ form.category.help_text }}</p>
       </div>
         <div class="control">
           <button class="button is-primary">Add Category</button>
