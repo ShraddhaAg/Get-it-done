@@ -1,0 +1,61 @@
+{% extends 'base_registration.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+  <article class="message is-danger">
+  <div class="message-header">
+    <p>Oh no! Authentication Failed!</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    Your username and password didn't match. Please try again.
+  </div>
+  </article>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>Please login to see this page.</p>
+  {% endif %}
+{% endif %}
+
+<form class="" action="{% url 'login' %}" method="post">
+  {% csrf_token %}
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <label for="" class="label">{{form.username.label_tag}}</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control"><input type="text" name="username" class="input" id="id_username"></p>
+        <p class="help">{{ form.username.help_text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <label for="" class="label">{{form.password.label_tag}}</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control"><input type="password" name="password" class="input" id="id_password"></p>
+        <p class="help">{{ form.password.help_text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="control">
+    <input type="submit" class="button is-link" value="Login">
+    <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+
+
+</form>
+
+{% endblock %}

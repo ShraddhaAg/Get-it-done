@@ -4,7 +4,82 @@
   <div class="container">
     <form class="" action="" method="post">
       {% csrf_token %}
-      {{ form.as_table }}
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label for="id_title" class="label">{{form.title.label}}</label></div>
+        <div class="field-body">
+        <div class="field">
+          <p class="control">
+          <input type="text" class="input" name="title" value="{% if form.title.value %}{{ form.title.value }}{% endif %}" id="id_title">
+          </p>
+        <p class="help">{{ form.title.help_text }}</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label for="id_description" class="label">{{form.description.label}}</label></div>
+        <div class="field-body">
+        <div class="field">
+        <p class="control">
+          <textarea class="textarea" name="description" value="" id="id_description">{{ form.description.value }}</textarea>
+        </p>
+        <p class="help">{{ form.description.help_text }}</p>
+        </div>
+      </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label"><label for="id_hashtag" class="label">{{ form.hashtag.label }}</label></div>
+        <p class="control">
+          <div class="select" id="id_hashtag">
+            <select name="hashtag" id="id_hashtag">
+              {% for option in form.hashtag_set.all %}
+              <option value="{{ option.id }}">{{ option.category }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </p>
+        <p class="help">{{ form.hashtag.help_text }}</p>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label for="id_schedule_time_to_start" class="label">{{form.schedule_time_to_start.label}}</label></div>
+        <div class="field-body">
+        <div class="field">
+          <p class="control">
+          <input tyoe="text" name="schedule_time_to_start" value="{% if form.schedule_time_to_start.value %}{{ form.schedule_time_to_start.value }}{% endif %}" id="id_schedule_time_to_start">
+          </p>
+        <p class="help">{{ form.schedule_time_to_start.help_text }}</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label for="id_deadline" class="label">{{form.deadline.label}}</label></div>
+        <div class="field-body">
+        <div class="field">
+          <p class="control">
+          <input tyoe="text" name="deadline" value="{% if form.deadline.value %}{{ form.deadline.value }}{% endif %}" id="id_deadline">
+          </p>
+        <p class="help">{{ form.deadline.help_text }}</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label"><label for="id_priority" class="label">{{ form.priority.label }}</label></div>
+        <p class="control">
+          <div class="select" id="id_priority">
+            <select name="priority" id="id_priority">
+              {% for option in form.priority.choices %}
+              <option value="{{ option.id }}">{{ option }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </p>
+        <p class="help">{{ form.priority.help_text }}</p>
+      </div>
+
       <input type="submit" value="Submit">
     </form>
   </div>

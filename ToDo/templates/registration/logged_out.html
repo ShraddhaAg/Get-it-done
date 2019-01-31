@@ -1,0 +1,12 @@
+{% extends 'base_registration.html' %}
+
+{% block content %}
+
+<article class="message is-dark">
+<div class="message-body">
+  <p>You have succesfully logged out.</p>
+  <a href="{% url 'login' %}" class="is-link">Click here to login again.</a>
+</div>
+</article>
+
+{% endblock %}
