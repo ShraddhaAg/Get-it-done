@@ -13,6 +13,11 @@ class AddCategory(ModelForm):
     #     self.fields['category'].widget.attrs['class'] = 'input'
 
 class AddTask(ModelForm):
+
+
     class Meta:
         model = task
         fields = ['title', 'description', 'hashtag', 'schedule_time_to_start', 'deadline', 'priority']
+        # widgets = {
+        #     'priority': forms.Select(choices=PRIORITY)
+        # }
